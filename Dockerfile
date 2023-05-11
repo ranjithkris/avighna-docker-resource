@@ -23,8 +23,6 @@ RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk install java 8
 #Install Maven and Graphviz
 RUN apt-get update -y && apt-get install -y maven
 RUN apt-get update -y && apt-get install -y graphviz
-#RUN apt-get update -y && apt-get install -y python3-setuptools
-#RUN pip3 install setuptools
 
 # Copy the requires resources from the host avighna folder to the container /root/avighna/ folder
 ADD avighna-essential-resources/ /root/avighna/
@@ -61,13 +59,6 @@ RUN git checkout 8a4f4b9c9a5a3204d9663ecef39d687785369c9a
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 RUN git clone https://github.com/ranjithkris/pyramid_zipkin-example.git
 WORKDIR /root/avighna/Spring-Projects/zipkin/pyramid_zipkin-example/
-#RUN apt-get update -y && apt-get install -y python-pip python-dev
-#RUN apt-get update -y && apt-get install -y 2to3
-#RUN apt-get update -y && apt-get install -y python3-lib2to3
-#RUN apt-get update -y && apt-get install -y python3-toolz
-#RUN apt-get update -y && apt-get install -y python3-pip
-#RUN apt-get update -y && apt-get install -y python3-setuptools
-#RUN pip3 install setuptools
 RUN pip install pyramid_zipkin -U
 RUN python3 setup.py install
 
