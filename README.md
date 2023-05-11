@@ -1,0 +1,1 @@
+# avighna-docker-resource
