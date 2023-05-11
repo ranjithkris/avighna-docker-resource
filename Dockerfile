@@ -42,21 +42,21 @@ WORKDIR /root/avighna/Spring-Projects
 RUN git clone https://github.com/ranjithkris/fredbet.git
 WORKDIR /root/avighna/Spring-Projects/fredbet/
 RUN git checkout -b tags_release_2.0.0 tags/release_2.0.0
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 
 # Install Spring Initializer project
 WORKDIR /root/avighna/Spring-Projects
 RUN git clone https://github.com/ranjithkris/start.spring.io.git
 WORKDIR /root/avighna/Spring-Projects/start.spring.io/
 RUN git checkout 6c0944ead1bfef3444a9e1a422b3f134de2b7f48
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk use java 11.0.17-librca && mvn clean install -DskipTests"
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 11.0.17-librca && mvn clean install -DskipTests"
 
 # Install Spring Zipkin project
 WORKDIR /root/avighna/Spring-Projects
 RUN git clone https://github.com/ranjithkris/zipkin.git
 WORKDIR /root/avighna/Spring-Projects/zipkin/
 RUN git checkout 8a4f4b9c9a5a3204d9663ecef39d687785369c9a
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 RUN git clone https://github.com/ranjithkris/pyramid_zipkin-example.git
 WORKDIR /root/avighna/Spring-Projects/zipkin/pyramid_zipkin-example/
 RUN pip install pyramid_zipkin -U
@@ -67,6 +67,6 @@ WORKDIR /root/avighna/Guice-Projects
 RUN git clone https://github.com/ranjithkris/streamflow.git
 WORKDIR /root/avighna/Guice-Projects/streamflow/
 RUN git checkout -b tags_0.12.0 tags/0.12.0
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk use java 8.0.352-librca"
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca"
