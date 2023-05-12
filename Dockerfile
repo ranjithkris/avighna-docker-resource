@@ -64,10 +64,18 @@ RUN python3 setup.py install
 
 # Install CGBench project
 WORKDIR /root/avighna/Spring-Projects
-RUN git clone https://github.com/linghuiluo/CGBench.git
+RUN git clone https://github.com/ranjithkris/CGBench.git
 WORKDIR /root/avighna/Spring-Projects/CGBench/
-RUN git checkout 65820234b5b9a6f65bd69d78570a3caedee7f1a1
+RUN git checkout origin/for-avighna
+# RUN git checkout 65820234b5b9a6f65bd69d78570a3caedee7f1a1
+RUN rm -r guice-credentials/
+RUN rm -r music-store/
+RUN rm -r onlinechat/
+RUN rm -r onlineshop/
+RUN rm -r teleforum/
+RUN rm -r webgoat/
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && python3 buildAll.py"
+RUN mv guice/ /root/avighna/Guice-Projects/
 
 # Install Spring Petclinic project
 WORKDIR /root/avighna/Guice-Projects
