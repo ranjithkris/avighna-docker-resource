@@ -16,8 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainRunner {
+    //TODO: The below variables are set based on the docker container that we developed. Change the variables according if running in different environment
     private static final String CG_BENCH_ROOT_DIR = "/root/avighna/Spring-Projects/CGBench";
-    private static final String ROOT_BASE_PACKAGE = "de.fraunhofer.iem.springbench.";
+    private static final String ROOT_BASE_PACKAGE = "de.fraunhofer.iem.springbench";
     private static final String AVIGHNA_CMD_JAR = "/root/avighna/avighna-cmd-interface-1.0.0.jar";
     private static final String AVIGHNA_AGENT_JAR = "/root/avighna/avighna-agent-1.0.0.jar";
     private static final String OUTPUT_ROOT_DIR = "/root/avighna/avighna-output/Spring-Projects/CGBench";
@@ -100,7 +101,7 @@ public class MainRunner {
             appPackageName = ROOT_BASE_PACKAGE + proj;
             avighnaOutputDir = outRootDir + File.separator + "avighna-agent-output";
             dstFile = avighnaOutputDir + File.separator + "dynamic_cg.dst";
-            mergerOutputDir = avighnaOutputDir + File.separator + "hybridMergerOutput" + File.separator;
+            mergerOutputDir = avighnaOutputDir + File.separator + "hybrid-merger-output" + File.separator;
 
             File file1 = new File(avighnaOutputDir);
             File file2 = new File(mergerOutputDir);
