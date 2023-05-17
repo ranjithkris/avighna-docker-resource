@@ -78,6 +78,13 @@ RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-lib
 RUN mv guice/ /root/avighna/Guice-Projects/
 
 # Install Spring Petclinic project
+WORKDIR /root/avighna/Spring-Projects
+RUN git clone https://github.com/ranjithkris/spring-petclinic.git
+WORKDIR /root/avighna/Spring-Projects/spring-petclinic/
+RUN git checkout 0c1fa8e8e2744125cc4bee725fe2de6dd76d3a4f
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 11.0.17-librca && mvn clean install -DskipTests"
+
+# Install Streamflow project (Guice Framework)
 WORKDIR /root/avighna/Guice-Projects
 RUN git clone https://github.com/ranjithkris/streamflow.git
 WORKDIR /root/avighna/Guice-Projects/streamflow/
@@ -91,6 +98,11 @@ WORKDIR /root/avighna/Reflection-Projects/JavaReflectionTestCases/
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 
 # Install Runner projects
+
+# Install avighna which is used by helper runner
+WORKDIR /root/avighna/avighna/
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+
 # Install CGBenchRunner
 WORKDIR /root/avighna/CGBenchRunner/
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
@@ -100,3 +112,5 @@ WORKDIR /root/avighna/JavaReflectionTestRunner/
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca"
+
+WORKDIR /root/avighna/

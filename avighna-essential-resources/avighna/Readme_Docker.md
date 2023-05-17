@@ -1,9 +1,6 @@
 # Install Avighna-Docker in your host machine
 
 - Require docker for this artefact. To install docker in ubuntu follow the below link
-
-- Docker image is readily available in Docker hub. Just pull the image and follow the instruction from running the docker image [click here](#Running-the-docker-image).
-
   https://phoenixnap.com/kb/install-docker-on-ubuntu-20-04
 # Build & Run Avighna Docker image
 - Unzip the avighna-docker-resource.zip
@@ -21,14 +18,13 @@ cd avighna-docker-resource
 - Build Avighna docker image
 
 ```shell script
-docker build . -t avighnahybridcg/avighna-artefact
+docker build . -t avighna-image
 ```
 
-# Running the docker image 
 - Run the Avighna docker container in the interactive mode to use it as a ubuntu terminal.
 
 ```shell script
-docker run --name avighna-container --interactive --tty -p 9001:8080 -p 8081:8081 -p 9000:9000 -p 9411:9411 avighnahybridcg/avighna-artefact
+docker run --name avighna-container --interactive --tty -p 9001:8080 -p 8081:8081 -p 9000:9000 -p 9411:9411 avighna-image
 ```
 
 **Note:**
@@ -185,49 +181,14 @@ java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Sprin
 - **Present Working Directory:** /root/avighna/ (The below commands uses relative path, make sure you are in the correct present working directory)
 - Run Avighna on guice project.
 
-- First run the application using avighna-ccmd-interface to generate the avighna-agent configuration file
-
-````shell
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar -od avighna-output/Guice-Projects/guice/avighna-agent-output/ -rap java.com.baeldung.examples -sdf -sif
-````
-
-- Then, run the application directly using the avighna-agent
-  **Note:** The above command does not use avighna-cmd-interface, bacause this project needs interactive terminal (We will add this in avighna-cmd-interface in future). Therefore, we run avighna directly on this project with the help of avighna-agent.
-
 ```shell script
-java -Xbootclasspath/p:avighna-agent-1.0.0.jar -javaagent:avighna-agent-1.0.0.jar=/root/avighna/avighna-output/Guice-Projects/guice/avighna-agent-output/dynamic_agent.yml -noverify -jar Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -Xbootclasspath/p:avighna-agent-1.0.0.jar -javaagent:avighna-agent-1.0.0.jar=Guice-Projects/guice/dynamic_agent.yml -noverify -jar Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
+
+**Note:** The above command does not use avighna-cmd-interface, bacause this project needs interactive terminal (We will add this in avighna-cmd-interface in future). Therefore, we run avighna directly on this project with the help of avighna-agent.
 
 - Once the application is up and running, in the terminal start typing some message and click enter. You can send any number of messages.
 - Once you are done using the guice application, type 'q' to exit.
-
-##  Streamflow application
-- **Link:** https://github.com/linghuiluo/CGBench/tree/master/guice
-- **Branch:** master
-- **Commit Hash:** d3e2587c3a8a2d5c5895851c93eb6699c8b052bc
-- **Root Application Package:** com.baeldung.examples
-- **Present Working Directory:** /root/avighna/ (The below commands uses relative path, make sure you are in the correct present working directory)
-- Run Avighna on guice project.
-
-```shell script
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Guice-Projects/streamflow/streamflow-core/streamflow-app/streamflow-app-jar/target/streamflow-app-jar-0.12.0.jar -od avighna-output/Guice-Projects/streamflow/streamflow-core/streamflow-app/streamflow-app-jar/avighna-agent-output/ -rap streamflow.server -sdf -sif
-```
-
-**Note:** 
-- Need to investigate on how to run this Streamflow application correctly
-
-## CGBench and JavaTestReflection
-
-Just run the below two jar file
-
-````shell
-java -jar CGBenchRunner/target/CGBenchRunner-1.0-SNAPSHOT-jar-with-dependencies.jar
-java -jar JavaReflectionTestRunner/target/JavaReflectionTestRunner-1.0-SNAPSHOT-jar-with-dependencies.jar
-````
-
-**Note:**
-- CGBenchRunner takes too long to complete
-- Currently, for JavaReflectionTestRunner misses three or four modules from JavaReflectionTestCases. I will complete that in future
 
 ### To copy the output of the above Avighna commands
 
