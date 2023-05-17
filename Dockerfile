@@ -90,4 +90,13 @@ RUN git clone https://github.com/ranjithkris/JavaReflectionTestCases.git
 WORKDIR /root/avighna/Reflection-Projects/JavaReflectionTestCases/
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 
+# Install Runner projects
+# Install CGBenchRunner
+WORKDIR /root/avighna/CGBenchRunner/
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+
+# Install JavaReflectionTestCaseRunner
+WORKDIR /root/avighna/JavaReflectionTestRunner/
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca"
