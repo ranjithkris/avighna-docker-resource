@@ -84,4 +84,10 @@ WORKDIR /root/avighna/Guice-Projects/streamflow/
 RUN git checkout -b tags_0.12.0 tags/0.12.0
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
 
+# Install Java Reflection Test cases project by Florian Kübler
+WORKDIR /root/avighna/Reflection-Projects
+RUN git clone https://github.com/ranjithkris/JavaReflectionTestCases.git
+WORKDIR /root/avighna/Reflection-Projects/JavaReflectionTestCases/
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca && mvn clean install -DskipTests"
+
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 8.0.352-librca"
