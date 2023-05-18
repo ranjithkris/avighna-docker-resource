@@ -1,10 +1,14 @@
 # Install Avighna-Docker in your host machine
 
-- Require docker for this artefact. To install docker in ubuntu follow the below link
+- Require docker for this artefact. To install docker in ubuntu follow the below link https://phoenixnap.com/kb/install-docker-on-ubuntu-20-04
 
-- Docker image is readily available in Docker hub. Just pull the image and follow the instruction from running the docker image [click here](#Running-the-docker-image).
+- Docker image is readily available in Docker hub. Just pull the image using below command and follow the instruction from running the docker image [click here](#Running-the-docker-image).
 
-  https://phoenixnap.com/kb/install-docker-on-ubuntu-20-04
+```shell
+docker pull avighnahybridcg/avighna-artefact
+```
+
+  
 # Build & Run Avighna Docker image
 - Unzip the avighna-docker-resource.zip
 
