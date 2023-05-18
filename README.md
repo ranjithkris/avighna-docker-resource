@@ -10,6 +10,8 @@ docker pull avighnahybridcg/avighna-artefact
 
   
 # Build & Run Avighna Docker image
+If you want to build the Docker image manually then please follow these instructions.
+
 - Unzip the avighna-docker-resource.zip
 
 ```shell script
