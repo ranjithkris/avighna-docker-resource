@@ -137,7 +137,7 @@ java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Sprin
 - Running the front end server
 
 ```shell script
-python3 Spring-Projects/zipkin/pyramid_zipkin-example/frontend.py &
+python3 Spring-Projects/zipkin/pyramid_zipkin-example/frontend.py; python3 Spring-Projects/zipkin/pyramid_zipkin-example/backend.py; java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Spring-Projects/zipkin/zipkin-server/target/zipkin-server-2.23.17-SNAPSHOT-exec.jar -od avighna-output/Spring-Projects/zipkin/zipkin-server/avighna-agent-output/ -rap zipkin.server:zipkin2.server -sdf -sif
 
 # The above command runs in background. When you run this command
 # It print a process id for example [1] 289
