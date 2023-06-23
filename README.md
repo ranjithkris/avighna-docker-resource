@@ -47,7 +47,7 @@ docker run --name avighna-container --interactive --tty -p 9001:8080 -p 8081:808
 - To know the options available for Avighna use the below command.
 
 ```shell script
-java -jar avighna-cmd-interface-1.0.0.jar
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar
 
 #Below is the output of the above command
 
@@ -103,7 +103,7 @@ usage: avighna-cmd-interface
 - Run Avighna on fredbet.
 
 ```shell script
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Spring-Projects/fredbet/target/fredbet.jar -od avighna-output/Spring-Projects/fredbet/avighna-agent-output/ -rap de.fred4jupiter.fredbet -sdf -sif
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Spring-Projects/fredbet/target/fredbet.jar -od avighna-output/Spring-Projects/fredbet/avighna-agent-output/ -rap de.fred4jupiter.fredbet -sdf -sif
 ```
 
 - Once the application is up and running, Open the browser in the host machine and open the link http://localhost:9001/
@@ -119,7 +119,7 @@ java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Sprin
 - Run Avighna on start.spring.io (start-site).
 
 ```shell script
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Spring-Projects/start.spring.io/start-site/target/start-site-exec.jar -od avighna-output/Spring-Projects/start.spring.io/start-site/avighna-agent-output/ -rap io.spring.start.site -sdf -sif
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Spring-Projects/start.spring.io/start-site/target/start-site-exec.jar -od avighna-output/Spring-Projects/start.spring.io/start-site/avighna-agent-output/ -rap io.spring.start.site -sdf -sif
 ```
 
 - Once the application is up and running, Open the browser in the host machine and open the link http://localhost:9001/
@@ -137,7 +137,7 @@ java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Sprin
 - Running the front end server
 
 ```shell script
-python3 Spring-Projects/zipkin/pyramid_zipkin-example/frontend.py; python3 Spring-Projects/zipkin/pyramid_zipkin-example/backend.py; java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Spring-Projects/zipkin/zipkin-server/target/zipkin-server-2.23.17-SNAPSHOT-exec.jar -od avighna-output/Spring-Projects/zipkin/zipkin-server/avighna-agent-output/ -rap zipkin.server:zipkin2.server -sdf -sif
+python3 JarFiles/Spring-Projects/zipkin/pyramid_zipkin-example/frontend.py; python3 JarFiles/Spring-Projects/zipkin/pyramid_zipkin-example/backend.py; java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Spring-Projects/zipkin/zipkin-server/target/zipkin-server-2.23.17-SNAPSHOT-exec.jar -od avighna-output/Spring-Projects/zipkin/zipkin-server/avighna-agent-output/ -rap zipkin.server:zipkin2.server -sdf -sif
 
 # The above command runs in background. When you run this command
 # It print a process id for example [1] 289
@@ -148,7 +148,7 @@ kill -9 289
 - Running the back end server
 
 ```shell script
-python3 Spring-Projects/zipkin/pyramid_zipkin-example/backend.py &
+python3 JarFiles/Spring-Projects/zipkin/pyramid_zipkin-example/backend.py &
 
 # The above command runs in background. When you run this command
 # It print a process id for example [2] 290
@@ -158,7 +158,7 @@ kill -9 290
 - Run Avighna on zipkin (zipkin-server).
 
 ```shell script
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Spring-Projects/zipkin/zipkin-server/target/zipkin-server-2.23.17-SNAPSHOT-exec.jar -od avighna-output/Spring-Projects/zipkin/zipkin-server/avighna-agent-output/ -rap zipkin.server:zipkin2.server -sdf -sif
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Spring-Projects/zipkin/zipkin-server/target/zipkin-server-2.23.17-SNAPSHOT-exec.jar -od avighna-output/Spring-Projects/zipkin/zipkin-server/avighna-agent-output/ -rap zipkin.server:zipkin2.server -sdf -sif
 ```
 
 - Once the application is up and running, Open the browser in the host machine and open the below links.
@@ -176,7 +176,7 @@ java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Sprin
 - Run Avighna on spring-petclinic.
 
 ```shell script
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Spring-Projects/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar -od avighna-output/Spring-Projects/spring-petclinic/avighna-agent-output/ -rap org.springframework.samples.petclinic -sdf -sif
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Spring-Projects/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar -od avighna-output/Spring-Projects/spring-petclinic/avighna-agent-output/ -rap org.springframework.samples.petclinic -sdf -sif
 ```
 
 - Once the application is up and running, Open the browser in the host machine and open the link http://localhost:9001/
@@ -194,14 +194,14 @@ java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Sprin
 - First run the application using avighna-ccmd-interface to generate the avighna-agent configuration file
 
 ````shell
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar -od avighna-output/Guice-Projects/guice/avighna-agent-output/ -rap java.com.baeldung.examples -sdf -sif
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar -od avighna-output/Guice-Projects/guice/avighna-agent-output/ -rap java.com.baeldung.examples -sdf -sif
 ````
 
 - Then, run the application directly using the avighna-agent
   **Note:** The above command does not use avighna-cmd-interface, bacause this project needs interactive terminal (We will add this in avighna-cmd-interface in future). Therefore, we run avighna directly on this project with the help of avighna-agent.
 
 ```shell script
-java -Xbootclasspath/p:avighna-agent-1.0.0.jar -javaagent:avighna-agent-1.0.0.jar=/root/avighna/avighna-output/Guice-Projects/guice/avighna-agent-output/dynamic_agent.yml -noverify -jar Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -Xbootclasspath/p:JarFiles/avighna-agent-1.0.0.jar -javaagent:JarFiles/avighna-agent-1.0.0.jar=avighna-output/Guice-Projects/guice/avighna-agent-output/dynamic_agent.yml -noverify -jar JarFiles/Guice-Projects/guice/target/guice-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 - Once the application is up and running, in the terminal start typing some message and click enter. You can send any number of messages.
@@ -216,7 +216,7 @@ java -Xbootclasspath/p:avighna-agent-1.0.0.jar -javaagent:avighna-agent-1.0.0.ja
 - Run Avighna on guice project.
 
 ```shell script
-java -jar avighna-cmd-interface-1.0.0.jar -aaj avighna-agent-1.0.0.jar -aj Guice-Projects/streamflow/streamflow-core/streamflow-app/streamflow-app-jar/target/streamflow-app-jar-0.12.0.jar -od avighna-output/Guice-Projects/streamflow/streamflow-core/streamflow-app/streamflow-app-jar/avighna-agent-output/ -rap streamflow.server -sdf -sif
+java -jar JarFiles/avighna-cmd-interface-1.0.0.jar -aaj JarFiles/avighna-agent-1.0.0.jar -aj JarFiles/Guice-Projects/streamflow/streamflow-core/streamflow-app/streamflow-app-jar/target/streamflow-app-jar-0.12.0.jar -od avighna-output/Guice-Projects/streamflow/streamflow-core/streamflow-app/streamflow-app-jar/avighna-agent-output/ -rap streamflow.server -sdf -sif
 ```
 
 **Note:** 
